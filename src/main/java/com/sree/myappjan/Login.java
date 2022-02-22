@@ -19,6 +19,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+
+        // Creates Variable for  Text fields and Button
         username = (EditText) findViewById(R.id.usernameee);
         password = (EditText) findViewById(R.id.pswd);
         cancel = (Button) findViewById(R.id.cancel);
@@ -27,17 +29,24 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     }
     @Override
     public void onClick(View view) {
+        // Exits App
         finish();
     }
-    public void login(View view) {
-        String uname = username.getText().toString();
-        String paswd = password.getText().toString();
-        if(uname.equals(un) && paswd.equals(pw)){
 
+    public void login(View view) {
+        // Converts Text filed content to Strings
+        String uname = username.getText().toString();
+        String pword = password.getText().toString();
+
+        // Check Whether both username and password equals to inpuut
+        if(uname.equals(un) && pword.equals(pw)){
+
+            // Opens Home Page on Success
             Intent i = new Intent(getApplicationContext(),HomePage.class);
             startActivity(i);
 
         }else{
+            // Shows toast of incorrect password
             Toast.makeText(getApplicationContext(),"email or password incorrect",Toast.LENGTH_LONG).show();
         }
     }
